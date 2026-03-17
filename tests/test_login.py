@@ -1,12 +1,6 @@
 import time
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-BASE_URL = os.getenv("BASE_URL")
-
-if not BASE_URL:
-    raise Exception("A variável de ambiente BASE_URL não está definida.")
 
 # ==============================
 # HELPERS
@@ -37,7 +31,7 @@ def click_relative_to_center(page, offset_x, offset_y):
     x = viewport["width"] / 2 + offset_x
     y = viewport["height"] / 2 + offset_y
 
-    # DEBUG VISUAL (pode comentar depois)
+    # Debug visual (pode remover depois)
     page.mouse.move(x, y)
     page.wait_for_timeout(300)
 
@@ -55,12 +49,14 @@ def type_text(page, text):
 # TESTE PRINCIPAL
 # ==============================
 
-def test_login_completo(page, context):
+def test_login_completo(page, context, config):
+    BASE_URL = config["BASE_URL"]
+
     ensure_dirs()
 
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
-    log("Iniciando teste de login")
+    log(f"Iniciando teste de login em: {BASE_URL}")
 
     page.goto(BASE_URL)
     wait_flutter(page)
@@ -68,7 +64,7 @@ def test_login_completo(page, context):
     log("Página carregada")
 
     # ==========================
-    # AJUSTE DE OFFSETS (baseado no layout atual)
+    # AJUSTE DE OFFSETS
     # ==========================
     OFFSET_WHATSAPP = 60
     OFFSET_SENHA = 140
