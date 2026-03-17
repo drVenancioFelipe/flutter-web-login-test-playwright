@@ -1,8 +1,12 @@
 import time
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-BASE_URL = "https://hjt1kcq3jrlwvm1p8cp4.share.dreamflow.app/#/produtor/login"
+BASE_URL = os.getenv("BASE_URL")
 
+if not BASE_URL:
+    raise Exception("A variável de ambiente BASE_URL não está definida.")
 
 # ==============================
 # HELPERS
