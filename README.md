@@ -124,7 +124,7 @@ A estratégia adotada pode exigir ajustes finos de posicionamento (offset) caso 
 
 ## 📎 Aplicação testada
 
-🔗 https://hjt1kcq3jrlwvm1p8cp4.share.dreamflow.app/#/produtor/login
+🔗 LR Coffe Company
 
 ---
 
