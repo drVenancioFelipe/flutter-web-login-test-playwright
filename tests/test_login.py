@@ -61,7 +61,7 @@ def test_login_completo(page, context, config):
     page.goto(BASE_URL)
     wait_flutter(page)
 
-    log("Página carregada")
+    log(f"Página carregada com sucesso em {BASE_URL}")
 
     # ==========================
     # AJUSTE DE OFFSETS
